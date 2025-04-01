@@ -1,0 +1,31 @@
+# for local developement
+# mysql is running from host machine, hence > host.docker.internal
+
+version: '3.8'
+services:
+  php-backend:
+    build: .
+    ports:
+      - "8081:80"
+    environment:
+      DB_HOST: "172.17.0.1"  # Points to local MySQL
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: ecom
+      JWT_SECRET: hK8jQ2+GvNqV6VzHkLhTp8xFmW9NlCAdQ1kYz3xGgD4=
+
+    volumes:
+      - ./:/var/www/html  # Syncs local code to the container
+    
+  
+  mysql:
+    image: mariadb:10.1.19
+    ports:
+      - "8083:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: wp
+      MYSQL_DATABASE: ecom
+      MYSQL_USER: root
+      MYSQL_PASSWORD: wp

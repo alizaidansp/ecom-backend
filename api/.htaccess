@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Redirect "/api/endpoint" to "/api/endpoint.php"
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
