@@ -1,4 +1,12 @@
 <?php
+// prevent html responses
+ini_set('display_errors', 0); // Don't display errors in output
+ini_set('log_errors', 1); // Log errors instead
+error_reporting(E_ALL); // Report all errors
+
+header('Content-Type: application/json'); // Ensure response is JSON
+
+
 function handleCors() {
     $allowed_origins = [
         'http://localhost:5173',    #local-dev   'npm run dev

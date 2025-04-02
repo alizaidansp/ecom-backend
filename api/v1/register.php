@@ -79,13 +79,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 } 
 
- elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Handle GET request (Fetch users)
-    $result = $conn->query("SELECT id, email FROM users");
-    $users = $result->fetch_all(MYSQLI_ASSOC);
+//  elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+//     // Handle GET request (Fetch users)
+//     $result = $conn->query("SELECT id, email FROM users");
+//     $users = $result->fetch_all(MYSQLI_ASSOC);
 
-    echo json_encode($users);
-} else {
+//     echo json_encode($users);
+// }
+ else {
     http_response_code(405); // Method Not Allowed
     echo json_encode(['error' => 'Only POST method is allowed']);
 }
