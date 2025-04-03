@@ -1,4 +1,6 @@
 # docker-compose down && docker-compose up 
+# A command used during dev for running db and backend containers
+
 # Use the official PHP image with Apache
 FROM php:8.2-apache
 
@@ -37,7 +39,6 @@ RUN apt-get update && apt-get install -y default-mysql-client
 
 # Switch to non-root user for better security
 USER phpuser
-
 
 
 
